@@ -2,7 +2,7 @@
 #include<stdio.h>
 void main()
 {
-    int m,n,p,q,c=0;
+    int m,n,p,q,c=0; //m,n for matrix 1 and p,q for matrix 2
     printf("enter rows and columns of the first matrix");
     scanf("%d%d",&m,&n);
     printf("enter rows and columns of the second matrix");
