@@ -31,7 +31,7 @@ void display()
     ptr=head;
     if(head==NULL)
     {
-        printf("list is empty");
+        printf("list is empty\n");
     }
     else
     {
@@ -57,7 +57,7 @@ void main()
         case 1: create(); break;
         case 2: display(head); break;
         case 3: printf("exted"); break;
-        deafult: printf("invalid input. try again");
+        default: printf("invalid input. try again\n");
     }
     }
 }
