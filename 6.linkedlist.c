@@ -7,7 +7,8 @@ typedef struct node{
     struct node *address;
 }node;
 node *head,*new,*temp;
-void create()
+
+void create()   
 {
     new=(node*)malloc(sizeof(node));
     printf("enter data in node");
@@ -47,7 +48,7 @@ void main()
 {   
     
     int choice;
-    do{
+    do{         //loop has to be excuted atleast once
     printf("1.create\n2.display\n3.exit\n");
     printf("enter the choice:");
     scanf("%d",&choice);
