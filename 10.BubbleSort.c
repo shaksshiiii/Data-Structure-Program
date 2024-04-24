@@ -1,7 +1,8 @@
 #include<stdio.h>
+int num;
 void main()
 {
-    int n,temp;
+    int n,choice;
     printf("Enter the number of elements in the array");
     scanf("%d",&n);
     int arr[n];
@@ -10,21 +11,50 @@ void main()
     {
         scanf("%d",&arr[i]);
     }
-    for(int i=0;i<n-1;i++)
+    printf("select how you want to enter data\n1.ascending\n2.descending\n");
+    scanf("%d",&choice);
+    if(choice==1)
     {
-        for(int j=0;j<n-1-i;j++)
+        int temp;
+        for(int i=0;i<n-1;i++)
         {
-            if(arr[j]>arr[j+1])
+            for(int j=0;j<n-1-i;j++)
             {
-                temp=arr[j];
-                arr[j]=arr[j+1];
-                arr[j+1]=temp;
+                if(arr[j]>arr[j+1])
+                {
+                    temp=arr[j];
+                    arr[j]=arr[j+1];
+                    arr[j+1]=temp;
+                }
             }
         }
+        printf("sorted array:\n");
+        for(int i=0;i<n;i++)
+        {
+            printf("%d\t",arr[i]);
+        } 
     }
-    printf("sorted array:");
-    for(int i=0;i<n;i++)
+    else if(choice==2)
     {
-        printf("%d\t",arr[i]);
+        int temp;
+        for(int i=0;i<n-1;i++)
+        {
+            for(int j=0;j<n-1-i;j++)
+            {
+                if(arr[j]<arr[j+1])
+                {
+                    temp=arr[j];
+                    arr[j]=arr[j+1];
+                    arr[j+1]=temp;
+                }
+            }
+        }
+        printf("sorted array:\n");
+        for(int i=0;i<n;i++)
+        {
+            printf("%d\t",arr[i]);
+        }
     }
+    else
+        printf("invalid input.");
 }
