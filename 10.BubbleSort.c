@@ -1,3 +1,4 @@
+//sorting array using bubble sort
 #include<stdio.h>
 int num;
 void main()
