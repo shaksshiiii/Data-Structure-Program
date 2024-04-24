@@ -60,21 +60,15 @@ void pos()
     scanf("%d",&pos);
     if(pos==count+1)
     {
-       printf("Enter data to insert in the end");
-       scanf("%d",&ptr->data);
-       ptr->address=NULL;
-       p=head;
-       while(p->address!=NULL)
-       {
-          p=p->address;
-       }
-       p->address=ptr;
-       printf("**A node with %d data is inserted at %dth position i.e. end**\n",ptr->data,pos);
-       count++;
+       end();
+    }
+    else if(pos==1)
+    {
+        beginning();
     }
     else if(pos>count)
     {
-        printf("Data can not be inserted at %dth position as list has only %d nodes\n",pos,count);
+        printf("Data can not be inserted at %d position as list has only %d nodes\n",pos,count);
     }
     else{
     printf("Enter data to insert at that position:");
@@ -167,34 +161,48 @@ void display()
     
 }
 void main()
-{   
-    int n,choice;
-    printf("Enter the number of nodes you want in the list:");
+{
+    int n;
+    printf("enter the number of nodes you want to create");
     scanf("%d",&n);
-    count=n;
-    printf("Enter data in each node:");
+    printf("enter the data in each node");
     for(int i=0;i<n;i++)
     {
         create();
     }
+    int choice;
     do{
-    printf("Select the operation:\n1.Insert at beginning\n2.Insert at end\n3.Insert at required position\n4.Delete first node\n5.Delete last node\n6.Delete a node at a particular index\n7.Display\n8.Exit\n");
-    printf("Enter the choice:");
-    scanf("%d",&choice);
-    {
-    switch(choice)
-    {
-        case 1: beginning(); break;
-        case 2: end(); break;
-        case 3: pos(); break;
-        case 4: delete_start(); break;
-        case 5: delete_end(); break;
-        case 6: delete_pos(); break;
-        case 7: display(head); break;
-        case 8: printf("EXITED"); break;
-        default: printf("Invalid input.Try again\n");
-    }
-    }
-}
- while(choice!=8);
+        printf("select the operation:\n1.Insertion\n2.Deletion\n3.Display\n4.Exit\n");
+        scanf("%d",&choice);
+        switch(choice)
+        {
+            case 1:
+              int choice_insert;
+              printf("select how you want to insert the node:\n1.In the beginning\n2.At a specific position\n3.At the end\n");
+              scanf("%d",&choice_insert);
+              switch(choice_insert)
+              {
+                case 1: insert_beginning(); break;
+                case 2: insert_pos(); break;
+                case 3: insert_end(); break;
+                default: printf("Invalid input. Try again.\n");
+              }
+              break;
+            case 2:
+               int choice_delete;
+               printf("select how you want to delete the node:\n1.From the beginning\n2.From a specific position\n3.Last node\n");
+               scanf("%d",&choice_delete);
+               switch(choice_delete)
+               {
+                 case 1: delete_beginning(); break;
+                 case 2: delete_pos(); break;
+                 case 3: delete_end(); break;
+                 default: printf("Invalid input. Try again.\n");
+               }
+               break;
+            case 3: display(); break;
+            case 4: printf("EXITED"); break;
+            default: printf("Invalid input, try again\n");
+        }
+    }while(choice!=4);
 }
