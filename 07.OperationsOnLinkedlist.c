@@ -22,8 +22,8 @@ void create()
         temp=new;
     }
 }
-void beginning()
-{ 
+void insert_beginning()
+{
     node *ptr;
     ptr=(node*)malloc(sizeof(node));
     printf("enter data to insert in the beginnig");
@@ -33,7 +33,7 @@ void beginning()
     printf("**A node with %d data is inserted at the beginning**\n",ptr->data);
     count++;
 }
-void end()
+void insert_end()
 {
     node *ptr,*p;
     ptr=(node*)malloc(sizeof(node));
@@ -50,8 +50,8 @@ void end()
     printf("**A node with %d data is inserted the end**\n",ptr->data);
     count++;
 }
-void pos()
-{  
+void insert_pos()
+{
     int pos;
     node *ptr,*p;
     ptr=(node*)malloc(sizeof(node));
@@ -60,11 +60,11 @@ void pos()
     scanf("%d",&pos);
     if(pos==count+1)
     {
-       end();
+       insert_end();
     }
     else if(pos==1)
     {
-        beginning();
+        insert_beginning();
     }
     else if(pos>count)
     {
@@ -87,8 +87,8 @@ void pos()
     }
 
 }
-void delete_start()
-{   
+void delete_beginning()
+{
     node *ptr;
     ptr=(node*)malloc(sizeof(node));
     ptr=head;
@@ -121,13 +121,13 @@ void delete_pos()
     ptr=(node*)malloc(sizeof(node));
     pre_ptr=(node*)malloc(sizeof(node));
     pre_ptr=head;
-    ptr=head->address; 
+    ptr=head->address;
     int pos;
     printf("Enter the index of node which you want to delete");
     scanf("%d",&pos);
     if(pos==1)
     {
-        delete_start();
+        delete_beginning();
     }
     else if(pos==count)
     {
@@ -135,14 +135,14 @@ void delete_pos()
     }
     else if(pos>count)
     {
-        printf("No data exists at %dth position as list has only %d nodes\n",pos,count);
+        printf("No data exists at %d position as list has only %d nodes\n",pos,count);
     }
     else{
     for(int i=1;i<pos-1;i++)
     {
         ptr=ptr->address;
         pre_ptr=pre_ptr->address;
-    } 
+    }
     pre_ptr->address=ptr->address;
     free(ptr);
     printf("**Node at %dth position deleted**\n",pos);
@@ -166,7 +166,7 @@ void display()
         ptr=ptr->address;
         }
     }
-    
+
 }
 void main()
 {
@@ -185,8 +185,8 @@ void main()
         switch(choice)
         {
             case 1:
-              int choice_insert;
               printf("select how you want to insert the node:\n1.In the beginning\n2.At a specific position\n3.At the end\n");
+              int choice_insert;
               scanf("%d",&choice_insert);
               switch(choice_insert)
               {
@@ -197,8 +197,9 @@ void main()
               }
               break;
             case 2:
-               int choice_delete;
+
                printf("select how you want to delete the node:\n1.From the beginning\n2.From a specific position\n3.Last node\n");
+               int choice_delete;
                scanf("%d",&choice_delete);
                switch(choice_delete)
                {
