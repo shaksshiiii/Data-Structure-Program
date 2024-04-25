@@ -125,7 +125,15 @@ void delete_pos()
     int pos;
     printf("Enter the index of node which you want to delete");
     scanf("%d",&pos);
-    if(pos>count)
+    if(pos==1)
+    {
+        delete_start();
+    }
+    else if(pos==count)
+    {
+        delete_end();
+    }
+    else if(pos>count)
     {
         printf("No data exists at %dth position as list has only %d nodes\n",pos,count);
     }
