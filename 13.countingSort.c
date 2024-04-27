@@ -1,5 +1,4 @@
 //implementing counting algorithm: counting sort algorithm is used for sorting small and positive integers
-// Online C compiler to run C program online
 #include <stdio.h>
 int main() {
     int size,count=0;
