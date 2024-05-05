@@ -1,60 +1,27 @@
-//implementation of insertion sort
-#include <stdio.h>
-void main() {
-    int n,temp,choice; 
-    printf("enter size");
+#include<stdio.h>
+void main()
+{
+    int n,key;
+    printf("enter the size of the array");
     scanf("%d",&n);
     int arr[n];
-    printf("enter elements of array");
+    printf("enter the elements of array");
     for(int i=0;i<n;i++)
     {
         scanf("%d",&arr[i]);
     }
-    printf("1.Ascending\n2.Descending\nSelect how you want to Sort the Array:");
-    scanf("%d",&choice);
-    if(choice==1)
+    int j;
+    for(int i=1;i<n;i++)
     {
-        for(int i=0;i<n-1;i++)
-        {   
-            int start=arr[i+1];
-            for(int j=i;j>=0;j--)
-            {
-                if(start<arr[j])
-                {   
-                    //swaping
-                    temp=arr[j+1];
-                    arr[j+1]=arr[j];
-                    arr[j]=temp;
-                    //pointing start to swaped position
-                    start=arr[j];
-                }
-                
-            }
+        key=arr[i];
+        j=i-1;
+        while(arr[j]>key && j>=0)
+        {
+            arr[j+1]=arr[j];
+            j--;
         }
+        arr[j+1]=key;
     }
-    else if(choice==2)
-    {
-        for(int i=0;i<n-1;i++)
-        {   
-            int start=arr[i+1];
-            for(int j=i;j>=0;j--)
-            {
-                if(start>arr[j])
-                {   
-                    //swaping
-                    temp=arr[j+1];
-                    arr[j+1]=arr[j];
-                    arr[j]=temp;
-                    //pointing start to swaped position
-                    start=arr[j];
-                }
-                
-            }
-        }
-    }
-    else
-        printf("wrong input");
-    printf("Sorted array:");
     for(int i=0;i<n;i++)
     {
         printf("%d ",arr[i]);
