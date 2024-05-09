@@ -67,10 +67,12 @@ void display()
     }
 
 }
+
 void main()
 {
-     printf("****************STACK****************\n");
+    printf("****************STACK****************\n");
     int choice;
+    char ch;
     do{
         printf("\nEnter choice:\n1.push\n2.pop\n3.display\n4.peek\n5.isEmpty\n6.isFull\n7.Exit\n");
         scanf("%d",&choice);
@@ -82,8 +84,9 @@ void main()
             case 4: peek(); break;
             case 5: isEmpty(); break;
             case 6: isFull(); break;
-            case 7: printf("EXITED"); break;
             default: printf("Invalid input,try again.\n");
         }
-    }while(choice!=7);
+        printf("do you want to continue?(y/n):");
+        scanf(" %c",&ch);
+    }while(ch=='y' || ch=='Y');
 }
