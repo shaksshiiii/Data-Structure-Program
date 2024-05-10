@@ -180,6 +180,7 @@ void reversal()
         previous=current;
         current=next;
     }
+    head=previous;
 }
 void main()
 {
