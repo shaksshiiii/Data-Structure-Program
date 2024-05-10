@@ -168,6 +168,19 @@ void display()
     }
 
 }
+void reversal()
+{
+    node *previous,*current,*next;
+    previous=NULL;
+    current=next=head;
+    while(next->address!=NULL)
+    {
+        next=next->address;
+        current->address=previous;
+        previous=current;
+        current=next;
+    }
+}
 void main()
 {
     int n;
@@ -180,7 +193,7 @@ void main()
     }
     int choice;
     do{
-        printf("select the operation:\n1.Insertion\n2.Deletion\n3.Display\n4.Exit\n");
+        printf("select the operation:\n1.Insertion\n2.Deletion\n3.Display\n4.Reverse\n6>Exit\n");
         scanf("%d",&choice);
         switch(choice)
         {
@@ -210,8 +223,9 @@ void main()
                }
                break;
             case 3: display(); break;
-            case 4: printf("EXITED"); break;
+            case 4: reversal(); break;
+            case 5: printf("EXITED"); break;
             default: printf("Invalid input, try again\n");
         }
-    }while(choice!=4);
+    }while(choice!=5);
 }
