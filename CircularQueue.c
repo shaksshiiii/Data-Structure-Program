@@ -50,12 +50,12 @@ void display()
         printf("Queue underflow\n");
     }
     else{
-        int i=front,j=1;
+        int i=front;
         while(i!=rear)
         {
             printf("%d\n",queue[i]);
-            i=(front+j)%MAXSIZE;
-            j++;
+            i=(i+1)%MAXSIZE;
+            
         }
         printf("%d\n",queue[rear]);
     }
